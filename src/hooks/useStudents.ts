@@ -21,9 +21,6 @@ const useStudents = (): StudentsHookInterface => {
     enabled: true,
   });
 
-  /**
-   * Мутация удаления студента
-   */
   const deleteStudentMutate = useMutation({
     // вызов API delete
     mutationFn: async (studentId: number) => deleteStudentApi(studentId),
