@@ -1,13 +1,15 @@
-@use './main';
 @import "tailwindcss";
 
-:root {  
+:root {
   --color: #272727;
   --color2: #FFF;
   --color3: #F00;
   --background: #FFF;
   --background2: #E1E1E1;
-  --background3: #434343;  
+  --background3: #434343;
+
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +20,9 @@
     --background: #000;
     --background2: #1E1E1E;
     --background3: #BABABA;
+
+    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -55,73 +60,91 @@
 }
 
 
-body {
-  margin: 0;
-  font-family: PTSans;
-  color: var(--color);
-  background-color: var(--background);
-  font-size: 18px;
-
-  // @media #{main.$mob} {
-  //   font-size: main.vwMax(14px);
-  // }
+* {
+  box-sizing: border-box;
 }
 
-@mixin commons {
-  font-family: PTSans;  
-  color: var(--item-color);
-  font-weight: 500;
+body {
+  margin: 0;
+  font-family: 'PTSans', system-ui, -apple-system, sans-serif;
+  color: var(--color);
+  background-color: var(--background);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'AcromW00', 'PTSans', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: inherit;
 }
 
 h1 {
-  @include commons;
-  font-size: 42px;
-  font-weight: bold;
-  color: var(--current-color);
-
-  // @media #{main.$mob} {
-  //   font-size: main.vwMax(24px);
-  // }
+  font-size: 3rem;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  @include commons;
-  font-size: 32px;
-  font-weight: bold;
-
-  // @media #{main.$mob} {
-  //   font-size: main.vwMax(20px);
-  // }
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  @include commons;
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--link-color);
-
-  // @media #{main.$mob} {
-  //   font-size: main.vwMax(18px);
-  // }
+  font-size: 1.875rem;
+  letter-spacing: -0.015em;
 }
 
-
 h4 {
-  @include commons;
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--link-color);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
 
-  // @media #{main.$mob} {
-  //   font-size: main.vwMax(18px);
-  // }
+p {
+  margin: 0 0 1rem 0;
+  color: inherit;
 }
 
 a {
-    &:link {
-    color: var(--color);
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #2563eb;
   }
-  &:visited {
-    color: var(--color);
-  }
+}
+
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+
+::selection {
+  background: #3b82f6;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
 }

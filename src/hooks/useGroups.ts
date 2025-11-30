@@ -7,8 +7,6 @@ interface GroupsHookInterface {
 }
 
 const useGroups = (): GroupsHookInterface => {
-  // const queryClient = useQueryClient();
-
   const { data } = useQuery({
     queryKey: ['groups'],
     queryFn: () => getGroupsApi(),

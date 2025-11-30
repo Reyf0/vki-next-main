@@ -19,7 +19,7 @@ const Student = ({ student, onDelete }: Props): React.ReactElement => {
       <Link href={`/students/${student.id}`}>
         {`${student.id || 'xxxx'} - ${student.lastName} ${student.firstName} ${student.middleName} (${student?.group?.name})`}
       </Link>
-      <button className="border rounded-full px-2 hover:scale-110 transition" onClick={onDeleteHandler}>Удалить</button>
+      <button className="border rounded-full px-3 hover:scale-110 transition w-fit" onClick={onDeleteHandler}>Удалить</button>
     </div>
   );
 };

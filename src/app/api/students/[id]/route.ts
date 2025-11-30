@@ -24,7 +24,6 @@ export async function GET(
 ): Promise<NextResponse> {
   try {
     console.log('>>> API GET: Initializing database...');
-    // await initializeDatabase();
     const { id } = await params;
     const studentId = parseInt(id, 10);
     console.log('>>> API GET: Getting student with ID:', studentId);
@@ -40,7 +39,6 @@ export async function GET(
     }
 
     console.log('>>> API GET: Successfully retrieved student:', studentId);
-    // Преобразуем TypeORM entity в plain object для сериализации
     const plainStudent = JSON.parse(JSON.stringify(student));
     return NextResponse.json(plainStudent);
   }

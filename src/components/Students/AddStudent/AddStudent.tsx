@@ -55,7 +55,7 @@ const AddStudent = ({ onAdd, groups }: Props): React.ReactElement => {
                         className="p-3 border rounded-2xl bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-700 outline-none transition focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         {...register('groupId', { required: true })}
                     >
-                        <option value="">--Выберите группу--</option>
+                        <option value="">Выберите группу</option>
                         {groups.map(group => (
                             <option value={group.id} key={group.id} className="dark:bg-black">
                                 {group.name}
