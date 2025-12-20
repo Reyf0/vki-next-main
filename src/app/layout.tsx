@@ -22,8 +22,6 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>): Promise<React.ReactElement> => {
-  await createTestUsersDb();
-
 
   const state = dehydrate(queryClient, { shouldDehydrateQuery: () => true });
 
