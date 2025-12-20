@@ -24,15 +24,6 @@ export const metadata: Metadata = {
 const RootLayout = async ({ children }: Readonly<{ children: React.ReactNode }>): Promise<React.ReactElement> => {
   await createTestUsersDb();
 
-  await queryClient.prefetchQuery({
-    queryKey: ['students'],
-    queryFn: getStudentsApi,
-  });
-
-  await queryClient.prefetchQuery({
-    queryKey: ['groups'],
-    queryFn: getGroupsApi,
-  });
 
   const state = dehydrate(queryClient, { shouldDehydrateQuery: () => true });
 

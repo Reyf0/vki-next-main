@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: META_DESCRIPTION,
 };
 
-const GroupsPage = (): React.ReactNode => (
+const GroupsPage = () => (
   <Page>
     <h1>Группы</h1>
     <Groups />

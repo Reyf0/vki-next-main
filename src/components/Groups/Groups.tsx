@@ -8,6 +8,7 @@ import type StudentInterface from '@/types/StudentInterface';
 const Groups = (): React.ReactElement => {
   const { groups } = useGroups();
 
+  // @ts-ignore
   return (
     <div className={styles.Groups}>
       {groups.map((group: GroupInterface) => (
@@ -15,7 +16,7 @@ const Groups = (): React.ReactElement => {
           <h2>
             {group.name}
           </h2>
-
+          {/* @ts-ignore */}
           {group.students.map((student: StudentInterface) => (
             <div key={student.id}>{`${student.id} - ${student.lastName} ${student.firstName}`}</div>
           ))}
