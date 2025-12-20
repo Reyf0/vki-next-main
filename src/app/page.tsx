@@ -52,7 +52,7 @@ const HomePage = (): React.ReactNode => {
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-acrom font-bold text-white mb-6 animate-slide-in">
               <span className="block">Высший колледж</span>
-              <span className="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+              <span className="block bg-clip-text">
                 информатики НГУ
               </span>
             </h1>

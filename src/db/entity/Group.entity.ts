@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity()
+@Entity('groups')
 export class Group {
     @PrimaryGeneratedColumn()
     id!: number;
@@ -8,9 +8,7 @@ export class Group {
     @Column()
     name!: string;
 
-    @Column({ nullable: true })
+    @Column()
     contacts!: string;
 
-    @OneToMany('Student', (student: any) => student.group)
-    students?: any[];
 }

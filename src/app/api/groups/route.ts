@@ -1,11 +1,12 @@
 import { getGroupsDb } from '@/db/groupDb';
+import { NextResponse } from 'next/server';
 
-export async function GET(): Promise<Response> {
-  const groups = await getGroupsDb();
-
-  return new Response(JSON.stringify(groups), {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-};
+export async function GET() {
+  try {
+    const groups = await getGroupsDb();
+    return NextResponse.json(groups);
+  } catch (err) {
+    console.error('Failed to fetch groups:', err);
+    return NextResponse.json({ error: 'Failed to fetch groups' }, { status: 500 });
+  }
+}

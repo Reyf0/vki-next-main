@@ -1,9 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity()
+@Entity('students')
 export class Student {
     @PrimaryGeneratedColumn()
     id!: number;
+
+    @Column({ default: '' })
+    uuid?: string;
 
     @Column()
     firstName!: string;
@@ -11,12 +14,14 @@ export class Student {
     @Column()
     lastName!: string;
 
-    @Column({ nullable: true })
+    @Column()
     middleName!: string;
 
+    @Column({ default: '' })
+    contacts?: string;
+
+    // Убрана связь @ManyToOne для избежания циклической зависимости при сохранении
+    // Группа загружается вручную через запросы в studentDb.ts
     @Column()
     groupId!: number;
-
-    @ManyToOne('Group', (group: any) => group.students)
-    group!: any;
 }
