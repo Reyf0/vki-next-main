@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: META_DESCRIPTION,
 };
 
+export const dynamic = 'force-dynamic';
+
+
 const StudentsPage = (): React.ReactNode => (
   <Page>
     <h1 className="mb-5">Студенты</h1>
